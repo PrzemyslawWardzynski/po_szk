@@ -9,6 +9,21 @@ class CoursesTable extends Table
     public function initialize(array $config): void
     {
         $this->addBehavior('Timestamp');
-        $this->setDisplayField(['kod_kursu','nazwa_kursu']);
+        $this->setDisplayField(['code','name_c']);
+      
+        $this->belongsTo('Syllabuses');
+
+        $this->hasMany('Replacements', [
+            'className' => 'Replacements'
+        ])
+        ->setForeignKey('course_id')
+        ->setProperty('base');
+
+        
+        $this->hasMany('Replacements', [
+            'className' => 'Replacements'
+        ])
+        ->setForeignKey('replacement_id')
+        ->setProperty('replace');
     }
 }

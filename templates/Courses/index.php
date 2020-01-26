@@ -1,5 +1,5 @@
 
-<h1>Search</h1>
+<h2>Przeglądanie zamienników</h2>
 <?php
     echo $this->Form->create();
 
@@ -7,14 +7,10 @@
         'label' => 'Wpisz nazwę lub kod kursu'
     ]);
     echo $this->Form->button(__('Szukaj'));
-    echo $this->Form->end();
+    ?>
 
-    echo $this->Form->input('course', array('label'=>false, 
-               'div'=>false, 
-               'type'=>'select', 
-               'empty'=>'Wybierz kurs', 
-               'options'=>$siema));
-    
+<?php
+    echo $this->Form->end();
 ?>
 
 
@@ -26,23 +22,57 @@
 
 
 
-<h1>Courses</h1>
+
+<h2>Kursy</h2>
 <table>
     <tr>
         <th>Kod kursu</th>
+        <th>Nazwa kursu</th>
         <th>Forma kursu</th>
+        <th>ECTS</th>
+        <th>Język</th>
+        <th>Forma studiów</th>
+        <th>Stopień studiów</th>
+        <th>Semestr</th>
+        <th>Kierunek</th>
+        <th>Wydział</th>
     </tr>
 
-    <!-- Here is where we iterate through our $articles query object, printing out article info -->
+    
 
     <?php foreach ($courses as $course): ?>
     <tr>
         <td>
-            <?= $this->Html->link($course->kod_kursu, ['action' => 'view', $course->slug]) ?>
+        <?= $this->Html->link($course->code, ['action' => 'view', $course->id],['class' => 'r']) ?>
         </td>
         <td>
-            <?= $course->nazwa_kursu ?>
+            <?= $course->name_c ?>
         </td>
+        <td>
+            <?= $course->form ?>
+        </td>
+        <td>
+            <?= $course->ECTS ?>
+        </td>
+        <td>
+            <?= $course->_matchingData['Syllabuses']->study_language ?>
+        </td>
+        <td>
+            <?= $course->_matchingData['Syllabuses']->study_form ?>
+        </td>
+        <td>
+            <?= $course->_matchingData['Syllabuses']->degree ?>
+        </td>
+        <td>
+            <?= $course->semester?>
+        </td>
+        <td>
+            <?= $course->_matchingData['Syllabuses']->major ?>
+        </td>
+        <td>
+            <?= $course->_matchingData['Faculties']->symbol ?>
+        </td>
+        
     </tr>
     <?php endforeach; ?>
 </table>

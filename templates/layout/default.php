@@ -14,7 +14,7 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'SZK - system zamiany kursów';
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,13 +38,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
+
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="/"><span>Cake</span>PHP</a>
+            <a href="/app"><span>SZK</span>- system zamiany kursów</a>
         </div>
         <div class="top-nav-links">
-            <a target="_blank" href="https://book.cakephp.org/4/">Documentation</a>
-            <a target="_blank" href="https://api.cakephp.org/4/">API</a>
+            <a target="_blank" href="https://localhost/app/courses/">Przeglądanie zamienników</a>
+            <a target="_blank" href="https://api.cakephp.org/4/">Zgłoś propozycję</a>
         </div>
     </nav>
     <main class="main">

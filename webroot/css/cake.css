@@ -1,8 +1,18 @@
+
+
+
 /* Miligram overrides */
 a {
     font-family: "Raleway", sans-serif;
     color: #404041;
 }
+a.r{
+    font-family: "Raleway", sans-serif;
+    color : blue !important;
+    font-weight: bold;
+
+}
+
 
 /* Utility */
 .table-responsive {
@@ -12,6 +22,9 @@ a {
     -webkit-overflow-scrolling: touch;
 }
 
+.text-center {
+    text-align: center;
+}
 /* Main */
 body {
     background: #f5f7fa;

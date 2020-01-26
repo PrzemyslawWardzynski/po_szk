@@ -5,31 +5,87 @@ namespace App\Controller;
 
 class CoursesController extends AppController
 {
+    
+
+
+
     public function index()
     {
         $this->loadComponent('Paginator');
-        $q = $this->request->getData('search');
+        
         if($this->request->is('post')){
-        $query = $this->Courses->find();
-       
+        
+            $q = $this->request->getData('search');
 
-        $query->where(['nazwa_kursu LIKE \'%'.$q.'%\'
-                        OR kod_kursu LIKE \'%'.$q.'%\' ']);
-        $siema = $this->Courses->find('list'
-        
-        
-        
-        )->where(['nazwa_kursu LIKE \'%'.$q.'%\'
-        OR kod_kursu LIKE \'%'.$q.'%\' ']);
-      
-        $this->set(compact('siema'));
+                       
+            $courses =  $this->Courses->find()->matching(
+                'Syllabuses.Faculties', function ($q) {
+                    return $q->where(['Faculties.id' > '0']);
+                }
+            );
+            $courses->where(['name_c LIKE \'%'.$q.'%\'
+                OR code LIKE \'%'.$q.'%\' ']); 
+            $courses = $this->Paginator->paginate($courses);
+
     
-        $courses = $this->Paginator->paginate($query);
-        //$courses = $this->Paginator->paginate($this->Courses->findByNazwaKursu($q))
+          
+   
         }
         else{
-            $courses = $this->Paginator->paginate($this->Courses->findByNazwaKursu('ABCDEFGHIJKL'));
+            $courses = $this->Paginator->paginate($this->Courses->findByNameC('ABCDEFGHIJKL'));
+           
+            $courses =  $this->Courses->find()->matching(
+                'Syllabuses.Faculties', function ($q) {
+                    return $q->where(['Faculties.id' > '0']);
+                }
+            );
+            $courses = $this->Paginator->paginate($courses);
+            
         }
         $this->set(compact('courses'));
+       
     }
+
+
+    public function view($id = null)
+    {
+
+        $this->loadComponent('Paginator');
+        
+      
+
+        $return = $this->referer();
+        $this->set(compact('return'));
+
+
+        $replacements = $this->Courses->Replacements->find();
+        $filter = ['course_id =' => $id];
+
+        $replacements->matching('Courses.Syllabuses.Faculties', function ($q) use ($filter) {
+            return $q->where($filter);
+        });
+
+        
+        $replacements = $this->Paginator->paginate($replacements);
+        
+        
+        $this->set(compact('replacements'));
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
