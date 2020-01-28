@@ -29,7 +29,7 @@ $cakeDescription = 'SZK - system zamiany kursów';
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
-
+    <?= $this->Html->script('https://code.jquery.com/jquery-1.12.4.js') ?>
     <?= $this->Html->css('milligram.min.css') ?>
     <?= $this->Html->css('cake.css') ?>
 
@@ -45,7 +45,7 @@ $cakeDescription = 'SZK - system zamiany kursów';
         </div>
         <div class="top-nav-links">
             <a target="_blank" href="https://localhost/app/courses/">Przeglądanie zamienników</a>
-            <a target="_blank" href="https://api.cakephp.org/4/">Zgłoś propozycję</a>
+            <a target="_blank" href="https://localhost/app/propositions/">Zgłoś propozycję</a>
         </div>
     </nav>
     <main class="main">

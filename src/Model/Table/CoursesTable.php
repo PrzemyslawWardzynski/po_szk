@@ -25,5 +25,19 @@ class CoursesTable extends Table
         ])
         ->setForeignKey('replacement_id')
         ->setProperty('replace');
+
+
+        $this->hasMany('Propositions', [
+            'className' => 'Propositions'
+        ])
+        ->setForeignKey('course_id')
+        ->setProperty('base_p');
+
+        
+        $this->hasMany('Propositions', [
+            'className' => 'Propositions'
+        ])
+        ->setForeignKey('replacement_id')
+        ->setProperty('replace_p');
     }
 }

@@ -1,4 +1,15 @@
+.colflex {
+    flex:50%;
+    margin:30px;
+}
 
+.rowflex {
+    display:flex;
+}
+
+.padflex {
+    padding:30px;
+}
 
 
 /* Miligram overrides */
@@ -12,6 +23,8 @@ a.r{
     font-weight: bold;
 
 }
+
+
 
 
 /* Utility */

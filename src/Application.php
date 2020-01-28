@@ -51,7 +51,7 @@ class Application extends BaseApplication
          * Debug Kit should not be installed on a production system
          */
         if (Configure::read('debug')) {
-            $this->addPlugin('DebugKit');
+            //debugkitoff $this->addPlugin('DebugKit');
         }
 
         // Load more plugins here
@@ -82,6 +82,7 @@ class Application extends BaseApplication
             // using it's second constructor argument:
             // `new RoutingMiddleware($this, '_cake_routes_')`
             ->add(new RoutingMiddleware($this));
+            
 
         return $middlewareQueue;
     }

@@ -24,6 +24,7 @@
 
 
 <h2>Kursy</h2>
+<h6>Kliknij w kod wybranego kursu, aby wyświetlić jego zamienniki</h6>
 <table>
     <tr>
         <th>Kod kursu</th>

@@ -28,7 +28,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'SZK - system zamiany kursów';
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        <?= $cakeDescription ?>:
+        <?= $cakeDescription ?>
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
@@ -47,6 +47,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->Html->css('milligram.min.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('Home.css') ?>
+    <?= $this->Html->css('flex.css') ?>
 
 
     <?= $this->fetch('meta') ?>
@@ -57,11 +58,11 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
   
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="/app"><span>SZK</span>- system zamiany kursów</a>
+            <a href="/app"><span>SZK -</span> system zamiany kursów</a>
         </div>
         <div class="top-nav-links">
             <a target="_blank" href="https://localhost/app/courses/">Przeglądanie zamienników</a>
-            <a target="_blank" href="https://api.cakephp.org/4/">Zgłoś propozycję</a>
+            <a target="_blank" href="https://localhost/app/propositions/">Zgłoś propozycję</a>
         </div>
     </nav>
     <main class="main">
@@ -74,7 +75,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </h1>
             <ul>Menu
                 <li><a target="_blank" href="https://localhost/app/courses/">Przeglądanie zamienników</a><li>
-                <li><a target="_blank" href="https://api.cakephp.org/4/">Zgłoś propozycję</a><li>
+                <li><a target="_blank" href="https://localhost/app/propositions/">Zgłoś propozycję</a><li>
 
 
 
