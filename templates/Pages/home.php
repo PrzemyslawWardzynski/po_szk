@@ -61,7 +61,7 @@ $cakeDescription = 'SZK - system zamiany kursów';
             <a href="/app"><span>SZK -</span> system zamiany kursów</a>
         </div>
         <div class="top-nav-links">
-            <a target="_blank" href="https://localhost/app/courses/">Przeglądanie zamienników</a>
+            <a target="_blank" href="https://localhost/app/courses/">Przeglądaj zamienniki</a>
             <a target="_blank" href="https://localhost/app/propositions/">Zgłoś propozycję</a>
         </div>
     </nav>
@@ -74,7 +74,7 @@ $cakeDescription = 'SZK - system zamiany kursów';
                 Witaj w SZK - systemie zamiany kursów!
             </h1>
             <ul>Menu
-                <li><a target="_blank" href="https://localhost/app/courses/">Przeglądanie zamienników</a><li>
+                <li><a target="_blank" href="https://localhost/app/courses/">Przeglądaj zamienniki</a><li>
                 <li><a target="_blank" href="https://localhost/app/propositions/">Zgłoś propozycję</a><li>
 
 

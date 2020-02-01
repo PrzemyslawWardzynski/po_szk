@@ -9,7 +9,7 @@
     echo $this->Form->control('search', [
         'label' => 'Wpisz nazwę lub kod kursu (bazowego)'
     ]);
-    echo $this->Form->button(__('Szukaj'),['type' => 'button','id'=>'searchButton','onclick' => 'siema()']);
+    echo $this->Form->button(__('Szukaj'),['type' => 'button','id'=>'searchButton','onclick' => 'dynSearch()']);
   
 
     echo $this->Form->control('course_id', ['id'=>'course','label' => '', 'options' => $courses, 'empty' => 'Wyszukaj i wybierz kurs','required' => 'true']);
@@ -19,13 +19,13 @@
 <?php echo $this->Form->control('search2', [
         'label' => 'Wpisz nazwę lub kod kursu (zamiennika)'
     ]);
-    echo $this->Form->button(__('Szukaj'),['type' => 'button','id'=>'searchButton2','onclick' => 'siema2()']);
+    echo $this->Form->button(__('Szukaj'),['type' => 'button','id'=>'searchButton2','onclick' => 'dynSearch2()']);
    
     echo $this->Form->control('replacement_id', ['id'=>'course2','label' => '', 'options' => $courses, 'empty' => 'Wyszukaj i wybierz kurs','required' => 'true']);
     ?> </div> 
 </div>
 <div class = "padflex">
-    <?php echo $this->Form->control('student_index', ['label' => 'Wpisz swój indeks studenta','type' => 'number', 'required' => 'true', 'min' => '100000', 'max' => '999999']); ?>
+    <?php echo $this->Form->control('student_index', ['label' => 'Wpisz swój indeks studenta*','type' => 'number', 'required' => 'true', 'min' => '100000', 'max' => '999999']); ?>
 
 
 <?php echo $this->Form->button(__('Zgłoś'));
@@ -40,7 +40,7 @@
 <script>
 
 
-function siema()  {
+function dynSearch()  {
     var query = $('#search').val();
    $.ajax({
      dataType: "json",
@@ -76,7 +76,7 @@ function siema()  {
      });
 };
 
-function siema2()  {
+function dynSearch2()  {
     var query = $('#search2').val();
    $.ajax({
      dataType: "json",

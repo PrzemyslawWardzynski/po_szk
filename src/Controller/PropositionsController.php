@@ -65,12 +65,20 @@ class PropositionsController extends AppController
                 $error = 1;
             }
             else{
-                $existQuery = $this->Propositions->Courses->Replacements->find(null, array(
+                $existQuery = $this->Propositions->Courses->Replacements->find('all', array(
                     'conditions' => array('Replacements.course_id' => $course_id,'Replacements.replacement_id' => $replacement_id,)));
                 
+                $existPropositionQuery = $this->Propositions->find('all', array(
+                    'conditions' => array('Propositions.course_id' => $course_id,'Propositions.replacement_id' => $replacement_id,)));    
     
                 if($existQuery->count() != 0){
                     $this->Flash->error(__('Ten zamiennik już istnieje w bazie.'));
+                    $error = 1;
+                }
+
+                
+                if($existPropositionQuery->count() != 0){
+                    $this->Flash->error(__('Ta propozycja zamiennika już istnieje w bazie.'));
                     $error = 1;
                 }
                 
@@ -99,7 +107,7 @@ class PropositionsController extends AppController
                 }
     
                 if(strcmp($courseData["_matchingData"]['Syllabuses']['study_language'],$replacementData["_matchingData"]['Syllabuses']['study_language']) != 0){
-                    $this->Flash->error(__('Kursy mają różne języki.'));
+                    $this->Flash->error(__('Kursy są prowadzone w różnych językach.'));
                     $error = 1;
                 }
                 
